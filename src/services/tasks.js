@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const API_URL = '/api/tasks'
+//const API_URL = '/api/tasks'
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://todo-app-backend-aqzv.onrender.com/api/tasks' 
+  : 'http://localhost:5000/api/tasks';
 
 const getTasks = async (token) => {
   const config = {

@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const API_URL = '/api/auth'
+//const API_URL = '/api/auth'
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://todo-app-backend-aqzv.onrender.com/api/auth' 
+  : 'http://localhost:5000/api/auth';
 
 const register = async (userData) => {
   const response = await axios.post(`${API_URL}/register`, userData)
